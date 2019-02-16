@@ -8,4 +8,7 @@ var app = new Vue({
             variants: [{id: 1, color: "Green"},{id: 2, color: "Blue"}],
             cart: 0
           },
+    methods: {
+      addToCart: function() {this.cart+=1}
+    },
 });
