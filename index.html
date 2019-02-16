@@ -30,7 +30,7 @@
             </ul>
             <ul>
                 <li v-for="variant in variants">
-                    <p>{{variant.color}}</p>
+                    <p @mouseover="updateProduct(variant.color)">{{variant.color}}</p>
                 </li>
             </ul>
            </div>
