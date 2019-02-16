@@ -22,7 +22,7 @@
                 <li v-for="detail in details">
                     {{ detail }}
                 </li>
-                <button v-on:click="addToCart">Add to cart</button>
+                <button @click="addToCart">Add to cart</button>
                 <div class="cart">
                     <p>Cart: {{ cart }}</p>
 
