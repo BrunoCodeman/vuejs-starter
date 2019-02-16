@@ -18,6 +18,20 @@
             <p v-show="inventory >10">In Stock</p>
             <p v-show="inventory <= 10 && inventory > 0">Almost sold out</p>
             <p v-show="inventory == 0"> Out of Stock </p>
+            <ul>
+                <li v-for="detail in details">
+                    {{ detail }}
+                </li>
+                <div class="cart">
+                    <p>Cart: {{ cart }}</p>
+
+                </div>
+            </ul>
+            <ul>
+                <li v-for="variant in variants">
+                    <p>{{variant.color}}</p>
+                </li>
+            </ul>
            </div>
        </div>
        </div>
