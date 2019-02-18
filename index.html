@@ -14,28 +14,24 @@
        <div class="product-image">
            <img :src="image" >
            <div class="product-info">
-            <h1> {{ product }}</h1>
-            <p v-show="inventory >10">In Stock</p>
-            <p v-show="inventory <= 10 && inventory > 0">Almost sold out</p>
-            <p v-show="inventory == 0"> Out of Stock </p>
+            <h1> {{ title }}</h1>
+            <p v-show="InStock">In Stock</p>
+            <p v-show="!InStock"> Out of Stock </p>
             <ul>
                 <li v-for="detail in details">
                     {{ detail }}
                 </li>
-                <button @click="addToCart">Add to cart</button>
                 <div class="cart">
                     <p>Cart: {{ cart }}</p>
 
                 </div>
             </ul>
-            <ul>
-                <li v-for="variant in variants">
-                    <p @mouseover="updateProduct(variant.color)">{{variant.color}}</p>
-                </li>
-            </ul>
-           </div>
-       </div>
-       </div>
+            <div v-for="(variant, index) in variants" :key="variant.id" class="color-box"
+            :style="{backgroundColor: variant.color}" @mouseover="updateProduct(index)">
+              
+            </div>
+            <button @click="addToCart" :disabled="!InStock" :class="{disabledButton: !InStock}">Add to cart</button>
+          </div>
     </div>
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
